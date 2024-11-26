@@ -65,3 +65,8 @@ footer {
     color: #555;
     font-size: 0.9rem;
 }
+
+a {
+    color: #4CAF50;
+    text-decoration: underline;
+}

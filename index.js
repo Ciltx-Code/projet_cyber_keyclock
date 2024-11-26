@@ -17,6 +17,13 @@ app.use(session({
     store: memoryStore,
 }));
 
+app.use((err, req, res, next) => {
+    if (err.status === 403) {
+        return res.status(403).sendFile(path.join(__dirname, 'public/403.html'));
+    }
+    next(err); // Passer les autres erreurs à un autre middleware
+});
+
 const keycloak = new Keycloak({
     store: memoryStore,
 });
@@ -48,7 +55,6 @@ const parseToken = raw => {
 };
 
 app.get('/home', keycloak.protect(), (req, res, next) => {
-    console.log('here');
     const details = parseToken(req.session['keycloak-token']);
     const embedded_params = {};
 
@@ -71,7 +77,18 @@ app.get('/login', keycloak.protect(), (req, res) => {
 app.get('/ue1', keycloak.enforcer(['ue1:read'], {
     resource_server_id: 'gestion_notes'
 }), (req, res) => {
-    return res.status(200).end('success');
+    const details = parseToken(req.session['keycloak-token']);
+    const embedded_params = {};
+
+    if (details) {
+        embedded_params.name = details.name;
+        embedded_params.email = details.email;
+        embedded_params.username = details.preferred_username;
+    }
+
+    res.render('ue1', {
+        user: embedded_params,
+    });
 });
 
 app.get('/ue1/update', keycloak.enforcer(['ue1:write'], {
@@ -126,6 +143,10 @@ app.get('/ue3/validate', keycloak.enforcer(['ue3:validate'], {
 
 app.use((req, res, next) => {
     return res.status(404).end('Not Found');
+});
+
+app.use((req, res, next) => {
+    return res.status(403).end('Notdzdeezzd Found');
 });
 
 app.use((err, req, res, next) => {

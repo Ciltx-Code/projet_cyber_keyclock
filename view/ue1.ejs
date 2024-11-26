@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithmique et programmation (UE1)</title>
+    <!-- Lien vers le CSS -->
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+    <h1>Algorithmique et Programmation (UE1)</h1>
+    <!-- Code dynamique pour afficher le nom de l'utilisateur ou un message de connexion -->
+    <% try { %>
+        <% if (user) { %>
+            <p><%= user.name %> (<%= user.email %>) <a href="/logout" style="color: white; margin-left: 5%">Déconnexion</a> </p>
+        <% } else { %>
+            <p>Please Login</p>
+        <% } %>
+    <% } catch (e) { %>
+        <% console.log(e) %>
+        <p>Please Login</p>
+    <% } %>
+</header>
+<main>
+    <section>
+        <h2>Description de l'UE</h2>
+        <p>
+            Cette unité d'enseignement aborde les fondamentaux de l'algorithmique et de la programmation.
+            Les étudiants apprendront à concevoir, analyser et implémenter des algorithmes en utilisant un langage de programmation moderne.
+        </p>
+    </section>
+    <section>
+        <h2>Objectifs</h2>
+        <ul>
+            <li>Comprendre les concepts de base de l'algorithmique.</li>
+            <li>Savoir analyser la complexité des algorithmes.</li>
+            <li>Apprendre à programmer en respectant les bonnes pratiques.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Programme</h2>
+        <ul>
+            <li>Introduction à l'algorithmique et à la programmation</li>
+            <li>Structures conditionnelles et itératives</li>
+            <li>Manipulation de tableaux et structures de données simples</li>
+            <li>Notions de récursivité</li>
+            <li>Introduction à la complexité algorithmique</li>
+        </ul>
+    </section>
+    <!-- Lien de retour à l'accueil -->
+    <a href="/" style="display: block; margin-top: 20px;">← Retour à l'accueil</a>
+</main>
+<footer>
+    <p>© 2024 - Catalogue des UE - Tous droits réservés.</p>
+</footer>
+</body>
+</html>

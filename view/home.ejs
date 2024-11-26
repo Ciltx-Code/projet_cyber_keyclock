@@ -13,8 +13,7 @@
 	<!-- Code dynamique pour afficher le nom de l'utilisateur ou un message de connexion -->
 	<% try { %>
 		<% if (user) { %>
-			<% console.log(user) %>
-			<p><%= user.name %> (<%= user %>)</p>
+			<p><%= user.name %> (<%= user.email %>) <a href="/logout" style="color: white; margin-left: 5%">Déconnexion</a> </p>
 		<% } else { %>
 			<p>Please Login</p>
 		<% } %>
@@ -27,9 +26,9 @@
 	<section class="ue-list">
 		<h2>Semestre 1</h2>
 		<ul>
-			<li>Algorithmique et programmation</li>
-			<li>Mathématiques appliquées</li>
-			<li>Introduction aux bases de données</li>
+			<li><a href="/ue1">Algorithmique et programmation (UE1)</a></li>
+			<li><a href="/ue2">Mathématiques appliquées (UE2)</a></li>
+			<li><a href="/ue3">Introduction aux bases de données (UE3)</a></li>
 			<li>Communication professionnelle</li>
 		</ul>
 	</section>
