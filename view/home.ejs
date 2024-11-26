@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Liste des UE</title>
+	<!-- Lien vers le CSS -->
+	<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+	<h1>Catalogue des Unités d'Enseignement</h1>
+	<!-- Code dynamique pour afficher le nom de l'utilisateur ou un message de connexion -->
+	<% try { %>
+		<% if (user) { %>
+			<% console.log(user) %>
+			<p><%= user.name %> (<%= user %>)</p>
+		<% } else { %>
+			<p>Please Login</p>
+		<% } %>
+	<% } catch (e) { %>
+		<% console.log(e) %>
+		<p>Please Login</p>
+	<% } %>
+</header>
+<main>
+	<section class="ue-list">
+		<h2>Semestre 1</h2>
+		<ul>
+			<li>Algorithmique et programmation</li>
+			<li>Mathématiques appliquées</li>
+			<li>Introduction aux bases de données</li>
+			<li>Communication professionnelle</li>
+		</ul>
+	</section>
+	<section class="ue-list">
+		<h2>Semestre 2</h2>
+		<ul>
+			<li>Structures de données avancées</li>
+			<li>Programmation orientée objet</li>
+			<li>Systèmes d'exploitation</li>
+			<li>Anglais technique</li>
+		</ul>
+	</section>
+	<section class="ue-list">
+		<h2>Semestre 3</h2>
+		<ul>
+			<li>Développement web</li>
+			<li>Apprentissage automatique</li>
+			<li>Gestion de projet</li>
+			<li>Sécurité informatique</li>
+		</ul>
+	</section>
+</main>
+<footer>
+	<p>© 2024 - Liste des UE - Tous droits réservés.</p>
+</footer>
+</body>
+</html>

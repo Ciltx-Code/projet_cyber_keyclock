@@ -1,0 +1,14 @@
+{
+  "realm": "GestionNotes",
+  "auth-server-url": "http://localhost:8080/",
+  "ssl-required": "external",
+  "resource": "gestion_notes",
+  "verify-token-audience": true,
+  "credentials": {
+    "secret": "xdeZ6hCzTjN70EMxadUiDT0G737A8yRr"
+  },
+  "confidential-port": 0,
+  "policy-enforcer": {
+    "credentials": {}
+  }
+}
