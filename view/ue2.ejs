@@ -3,14 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Algorithmique et programmation (UE1)</title>
-    <!-- Lien vers le CSS -->
+    <title>Mathématiques appliquées (UE2)</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
 <header>
-    <h1>Algorithmique et Programmation (UE1)</h1>
-    <!-- Code dynamique pour afficher le nom de l'utilisateur ou un message de connexion -->
+    <h1>Mathématiques Appliquées (UE2)</h1>
     <% try { %>
         <% if (user) { %>
             <p><%= user.name %> (<%= user.email %>)
@@ -28,8 +26,8 @@
     <section>
         <h2>Description de l'UE</h2>
         <p>
-            Cette unité d'enseignement aborde les fondamentaux de l'algorithmique et de la programmation.
-            Les étudiants apprendront à concevoir, analyser et implémenter des algorithmes en utilisant un langage de programmation moderne.
+            Cette unité d'enseignement porte sur les concepts fondamentaux des mathématiques appliquées.
+            Les étudiants exploreront des techniques avancées de modélisation mathématique et les outils nécessaires pour résoudre des problèmes pratiques dans divers domaines, tels que la physique, l'économie et l'ingénierie.
         </p>
     </section>
     <section>
@@ -54,15 +52,15 @@
                             <td></td>
                         <% }else{ %>
                             <td>
-                                <form action="/ue1/update" method="GET">
-                                    <input type="hidden" name="ue" value="ue1">
+                                <form action="/ue2/update" method="GET">
+                                    <input type="hidden" name="ue" value="ue2">
                                     <input type="hidden" name="student" value="<%= name %>">
                                     <button style="padding: 10px 20px; cursor:pointer; margin-bottom: 10px; margin-top: 10px">Modifier</button>
                                 </form>
                             </td>
                             <td>
-                                <form action="/ue1/validate" method="GET">
-                                    <input type="hidden" name="ue" value="ue1">
+                                <form action="/ue2/validate" method="GET">
+                                    <input type="hidden" name="ue" value="ue2">
                                     <input type="hidden" name="student" value="<%= name %>">
                                     <button style="padding: 10px 20px; cursor:pointer; margin-bottom: 10px; margin-top: 10px">Valider</button>
                                 </form>
@@ -75,7 +73,6 @@
             </table>
         </div>
     </section>
-    <!-- Lien de retour à l'accueil -->
     <a href="/" style="display: block; margin-top: 20px;">← Retour à l'accueil</a>
 </main>
 <footer>

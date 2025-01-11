@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier la note de l'étudiant</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<header>
+    <h1>Modifier la note de l'étudiant - <%= ue %></h1>
+    <% try { %>
+        <% if (user) { %>
+            <p><%= user.name %> (<%= user.email %>)
+                <a href="/logout" style="color: white; margin-left: 5%">Déconnexion</a>
+            </p>
+        <% } else { %>
+            <p>Please Login</p>
+        <% } %>
+    <% } catch (e) { %>
+        <p>Please Login</p>
+    <% } %>
+</header>
+<main>
+    <section>
+        <h2>Modifier la note de <%= studentName %></h2>
+        <form action="<%= from %>/update" method="GET">
+            <input type="hidden" name="ue" value="<%= ue %>">
+            <input type="hidden" name="student" value="<%= studentName %>">
+
+            <div style="margin-bottom: 20px;">
+                <label for="note">Nouvelle note :</label>
+                <input type="number" id="note" name="note" value="<%= currentNote %>" min="0" max="20" required>
+            </div>
+
+            <button type="submit" style="padding: 10px 20px; cursor:pointer;">Valider la modification</button>
+        </form>
+
+        <a href="<%= from %>" style="display: block; margin-top: 20px;">← Retour à la liste des étudiants</a>
+    </section>
+</main>
+<footer>
+    <p>© 2024 - Catalogue des UE - Tous droits réservés.</p>
+</footer>
+</body>
+</html>
